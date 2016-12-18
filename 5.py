@@ -9,17 +9,19 @@ def isconthyp(s):
         if s[i]=="-":
             return True
     return False
-a = ["b","c","d","f","g","h","j","k","l","m","n","p","q","r","s","t","v","w","x","z"]
-r = [ ".", "!", ",","?",":",";"]
+def spl(s):
+    r = [ ".", "!", ",","?",":",";"]
+    for i in range (len(r)):
+        s=s.replace(r[i],"")
+    s=s.split(" ")
+    res = list()
+    for i in s:
+        if i!="":
+            res.append(i)
+    return res
 s = input("Enter string: ").lower()
-for i in range (len(r)):
-    s=s.replace(r[i],"")
-s=s.split(" ")
-
-str = list()
-for i in s:
-   if i!="":
-        str.append(i)
-for i in range(len(str)):
-    if iscontcons(str[i],a)==True and isconthyp(str[i])!=True:
-        print(str[i])
+st = spl(s)
+a = ["b","c","d","f","g","h","j","k","l","m","n","p","q","r","s","t","v","w","x","z"]
+for i in range(len(st)):
+    if iscontcons(st[i],a)==True and isconthyp(st[i])!=True:
+        print(st[i])
